@@ -24,7 +24,7 @@ export default class App extends Component {
   toggleChangeCategory = (newCat)=> {
     this.setState({newsCategory: newCat});
   }
-  // in class based components we have to bind the function
+  // in class based components we have to bind the function 
   render() {
     return (
       <div>
