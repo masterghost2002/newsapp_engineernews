@@ -2,7 +2,15 @@ import './App.css';
 import React, { Component } from 'react'
 import NavBar from './components/NavBar';
 import News from './components/News';
+import About from './components/About';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
 export default class App extends Component {
+  apiKey = process.env.NEWS_ENGINEER_API_KEY;
   constructor() {
     super();
     this.state = {
@@ -27,10 +35,18 @@ export default class App extends Component {
   // in class based components we have to bind the function 
   render() {
     return (
+      <Router>
       <div>
-        <NavBar  viewMode={this.state.viewMode} switchTxt={this.state.switchTxt} toggleMode={this.toggleMode.bind(this)} changeCategory={this.toggleChangeCategory.bind(this)} />
-        <News key = {this.state.newsCategory} viewMode = {this.state.viewMode} pageSize = {6} category={this.state.newsCategory}/>
+      <NavBar  viewMode={this.state.viewMode} switchTxt={this.state.switchTxt} toggleMode={this.toggleMode.bind(this)} changeCategory={this.toggleChangeCategory.bind(this)} />
+        <div className="container">
+        <Routes>
+          <Route path="/About" element={<About defaultMode = {this.state.viewMode} />}/>
+          <Route path="/" element = {<News key = {this.state.newsCategory} viewMode = {this.state.viewMode} pageSize = {6} category={this.state.newsCategory}/>}/>
+        </Routes>
+        </div>
       </div>
+    </Router>
+      
     )
   }
 }

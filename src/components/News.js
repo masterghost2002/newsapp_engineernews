@@ -45,8 +45,8 @@ export class News extends Component {
   render() {
     return (
       <>
-        <div className='container my-3' style={{ color: this.props.viewMode === "light" ? "black" : "white" }}>
-          <h1 className="text-center my-3">{(this.props.category).toUpperCase()} -TOP HEADLINES</h1>
+        <div className='container my-3' style={{ color: this.props.viewMode === "light" ? "black" : "white"}}>
+          <h1 className="text-center" style={{marginTop:'70px'}}>{(this.props.category).toUpperCase()} -TOP HEADLINES</h1>
           {this.state.loading && <Spinner />}
           <InfiniteScroll
             dataLength={this.state.articles.length}
@@ -57,7 +57,7 @@ export class News extends Component {
             <div className="container">
               <div className="row">
                 {this.state.articles.map((element) => {
-                  return <div className="col-md-4" key = {element.url}>
+                  return <div className="col-md-4 my-2" key = {element.url}>
                     <NewsItem title={element.title ? element.title.slice(0, 44) : ""} description={element.description ? element.description.slice(0, 44) : ""} imageUrl={element.urlToImage} newsUrl={element.url} viewMode={this.props.viewMode} date={element.publishedAt} author={element.author} source={element.source.name} />
                   </div>
                 })}

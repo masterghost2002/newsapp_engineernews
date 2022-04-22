@@ -5,7 +5,7 @@ export class NewsItem extends Component {
         let { title, description, imageUrl, newsUrl, viewMode, author, date,source} = this.props;
         return (
             <div>
-                <div className={`card text-${viewMode === "light" ? "black" : "white"} bg-${viewMode === "light" ? "light" : "black"} mb-3`}>
+                <div className={`card text-${viewMode === "light" ? "black" : "white"} bg-${viewMode === "light" ? "light" : "black"} mb-4`}>
                     <img src={imageUrl ? imageUrl : "http://www.nftitalia.com/wp-content/uploads/2017/07/news-1-1600x429.jpg"} className="card-img-top" alt="..." />
                     <div className="card-body">
                         <h5 className="card-title">{title}<b>...</b></h5>
